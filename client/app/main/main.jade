@@ -13,5 +13,5 @@ header#banner.hero-unit
       h1.page-header Bondsleden:
       ul.col-md-4.col-lg-4.col-sm-6(ng-repeat='bondslid in $ctrl.bondsleden')
         li
-          a(href='#', uib-tooltip='{{bondslid.email}}')
+          a(href='/api/bondsleden/{{bondslid._id}}', uib-tooltip='{{bondslid.email}}')
             | {{bondslid.firstname}} {{bondslid.lastname}}
