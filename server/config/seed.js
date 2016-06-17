@@ -4,37 +4,35 @@
  */
 
 'use strict';
-import Thing from '../api/thing/thing.model';
+import Bondslid from '../api/bondslid/bondslid.model';
 
-Thing.find({}).remove()
-  .then(() => {
-    Thing.create({
-      name: 'Development Tools',
-      info: 'Integration with popular tools such as Bower, Grunt, Babel, Karma, ' +
-             'Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, ' +
-             'Stylus, Sass, and Less.'
-    }, {
-      name: 'Server and Client integration',
-      info: 'Built with a powerful and fun stack: MongoDB, Express, ' +
-             'AngularJS, and Node.'
-    }, {
-      name: 'Smart Build System',
-      info: 'Build system ignores `spec` files, allowing you to keep ' +
-             'tests alongside code. Automatic injection of scripts and ' +
-             'styles into your index.html'
-    }, {
-      name: 'Modular Structure',
-      info: 'Best practice client and server structures allow for more ' +
-             'code reusability and maximum scalability'
-    }, {
-      name: 'Optimized Build',
-      info: 'Build process packs up your templates as a single JavaScript ' +
-             'payload, minifies your scripts/css/images, and rewrites asset ' +
-             'names for caching.'
-    }, {
-      name: 'Deployment Ready',
-      info: 'Easily deploy your app to Heroku or Openshift with the heroku ' +
-             'and openshift subgenerators'
-    });
-  });
-
+Bondslid.find({}).remove()
+  .then(() => Bondslid.create({
+    firstname: 'Sanne',
+    lastname: 'van Alebeek',
+    email: 'slfvanalebeek@weetikhet.nl'
+  }, {
+    firstname: 'Krista',
+    lastname: 'Meijerman',
+    email: 'meijermann@weetikhet.nl'
+  }, {
+    firstname: 'Toine',
+    lastname: 'Hartman',
+    email: 'penning@meester.nl'
+  }, {
+    firstname: 'Nico',
+    lastname: 'de Korte',
+    email: 'bobdebouwer@gamma.nl'
+  }, {
+    firstname: 'Vianne',
+    lastname: 'Heusdens',
+    email: 'knippenplakkenlijmen@io.nl'
+  }, {
+    firstname: 'Balty',
+    lastname: 'Intern',
+    email: 'inteeeeeern@dsb.nl'
+  }, {
+    firstname: 'Matthijs',
+    lastname: 'Verzijl',
+    email: 'marcm@langenaam.nl'
+  }))
