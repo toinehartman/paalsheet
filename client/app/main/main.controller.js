@@ -11,7 +11,7 @@
 
     $onInit() {
       this.$http.get('/api/bondsleden')
-        .then(response => this.bondsleden = response.data)
+        .then(response => this.bondsleden = response.data);
     }
   }
 
