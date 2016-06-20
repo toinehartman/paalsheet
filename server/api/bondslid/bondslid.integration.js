@@ -35,8 +35,9 @@ describe('Bondslid API:', function() {
       request(app)
         .post('/api/bondsleden')
         .send({
-          name: 'New Bondslid',
-          info: 'This is the brand new bondslid!!!'
+          firstname: 'Jan',
+          lastname: 'Bondslid',
+          email: 'jan@dsb.nl'
         })
         .expect(201)
         .expect('Content-Type', /json/)
@@ -50,8 +51,9 @@ describe('Bondslid API:', function() {
     });
 
     it('should respond with the newly created bondslid', function() {
-      expect(newBondslid.name).to.equal('New Bondslid');
-      expect(newBondslid.info).to.equal('This is the brand new bondslid!!!');
+      expect(newBondslid.firstname).to.equal('Jan');
+      expect(newBondslid.lastname).to.equal('Bondslid');
+      expect(newBondslid.email).to.equal('jan@dsb.nl');
     });
 
   });
@@ -78,8 +80,9 @@ describe('Bondslid API:', function() {
     });
 
     it('should respond with the requested bondslid', function() {
-      expect(bondslid.name).to.equal('New Bondslid');
-      expect(bondslid.info).to.equal('This is the brand new bondslid!!!');
+      expect(newBondslid.firstname).to.equal('Jan');
+      expect(newBondslid.lastname).to.equal('Bondslid');
+      expect(newBondslid.email).to.equal('jan@dsb.nl');
     });
 
   });
@@ -91,8 +94,9 @@ describe('Bondslid API:', function() {
       request(app)
         .put('/api/bondsleden/' + newBondslid._id)
         .send({
-          name: 'Updated Bondslid',
-          info: 'This is the updated bondslid!!!'
+          firstname: 'Ernst',
+          lastname: 'van de Zaak',
+          email: 'ernst@dezaak.nl'
         })
         .expect(200)
         .expect('Content-Type', /json/)
@@ -110,8 +114,9 @@ describe('Bondslid API:', function() {
     });
 
     it('should respond with the updated bondslid', function() {
-      expect(updatedBondslid.name).to.equal('Updated Bondslid');
-      expect(updatedBondslid.info).to.equal('This is the updated bondslid!!!');
+      expect(updatedBondslid.firstname).to.equal('Ernst');
+      expect(updatedBondslid.lastname).to.equal('van de Zaak');
+      expect(updatedBondslid.email).to.equal('ernst@dezaak.nl');
     });
 
   });
