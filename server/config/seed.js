@@ -42,8 +42,8 @@ Onderdeel.find({}).remove()
   .then(() => Onderdeel.create({
     titel: 'Bierestafette',
     omschrijving: 'Lekker bav adten',
-    start: new Date(2016, 8, 22, 17, 0, 0, 0),
-    eind: new Date(2016, 8, 22, 18, 30, 0, 0),
+    start: new Date(2016, 7, 22, 17, 0, 0, 0),
+    eind: new Date(2016, 7, 22, 18, 30, 0, 0),
     taken: [{
       titel: 'Opbouwen'
     }, {
@@ -52,8 +52,8 @@ Onderdeel.find({}).remove()
   }, {
     titel: 'Nobelprijzen',
     omschrijving: 'Kansloze drankspelletjes onder adellijke begeleiding',
-    start: new Date(2016, 8, 22, 18, 30, 0, 0),
-    eind: new Date(2016, 8, 22, 21, 30, 0, 0),
+    start: new Date(2016, 7, 22, 18, 30, 0, 0),
+    eind: new Date(2016, 7, 22, 21, 30, 0, 0),
     taken: [{
       titel: 'Opbouwen'
     }, {
