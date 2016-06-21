@@ -12,8 +12,8 @@ describe('Component: mainComponent', function() {
   // Initialize the controller and a mock scope
   beforeEach(inject(function(_$httpBackend_, $http, $componentController, $rootScope) {
     $httpBackend = _$httpBackend_;
-    $httpBackend.expectGET('/api/things')
-      .respond(['HTML5 Boilerplate', 'AngularJS', 'Karma', 'Express']);
+    $httpBackend.expectGET('/api/bondsleden')
+      .respond(['Arie', 'Bart', 'Carel', 'Demi']);
 
     scope = $rootScope.$new();
     mainComponent = $componentController('main', {
@@ -22,10 +22,10 @@ describe('Component: mainComponent', function() {
     });
   }));
 
-  it('should attach a list of things to the controller', function() {
+  it('should attach a list of bondsleden to the controller', function() {
     mainComponent.$onInit();
     $httpBackend.flush();
-    expect(mainComponent.awesomeThings.length)
+    expect(mainComponent.bondsleden.length)
       .to.equal(4);
   });
 });
