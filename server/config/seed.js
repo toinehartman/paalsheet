@@ -5,6 +5,7 @@
 
 'use strict';
 import Bondslid from '../api/bondslid/bondslid.model';
+import Onderdeel from '../api/onderdeel/onderdeel.model';
 
 Bondslid.find({}).remove()
   .then(() => Bondslid.create({
@@ -35,4 +36,27 @@ Bondslid.find({}).remove()
     firstname: 'Matthijs',
     lastname: 'Verzijl',
     email: 'marcm@langenaam.nl'
+  }))
+
+Onderdeel.find({}).remove()
+  .then(() => Onderdeel.create({
+    titel: 'Bierestafette',
+    omschrijving: 'Lekker bav adten',
+    start: new Date(2016, 8, 22, 17, 0, 0, 0),
+    eind: new Date(2016, 8, 22, 18, 30, 0, 0),
+    taken: [{
+      titel: 'Opbouwen'
+    }, {
+      titel: 'Afbouwen'
+    }]
+  }, {
+    titel: 'Nobelprijzen',
+    omschrijving: 'Kansloze drankspelletjes onder adellijke begeleiding',
+    start: new Date(2016, 8, 22, 18, 30, 0, 0),
+    eind: new Date(2016, 8, 22, 21, 30, 0, 0),
+    taken: [{
+      titel: 'Opbouwen'
+    }, {
+      titel: 'Afbouwen'
+    }]
   }))
