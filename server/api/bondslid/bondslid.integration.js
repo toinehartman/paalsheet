@@ -8,7 +8,7 @@ var newBondslid;
 describe('Bondslid API:', function() {
 
   describe('GET /api/bondsleden', function() {
-    var bondslids;
+    var bondsleden;
 
     beforeEach(function(done) {
       request(app)
@@ -19,13 +19,13 @@ describe('Bondslid API:', function() {
           if (err) {
             return done(err);
           }
-          bondslids = res.body;
+          bondsleden = res.body;
           done();
         });
     });
 
     it('should respond with JSON array', function() {
-      expect(bondslids).to.be.instanceOf(Array);
+      expect(bondsleden).to.be.instanceOf(Array);
     });
 
   });

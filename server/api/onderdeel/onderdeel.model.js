@@ -8,7 +8,6 @@ var OnderdeelSchema = new mongoose.Schema({
     required: true
   },
   omschrijving: String,
-  dag: Date,
   start: Date,
   eind: Date,
   taken: [{
