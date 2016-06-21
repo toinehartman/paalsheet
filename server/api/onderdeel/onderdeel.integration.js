@@ -37,7 +37,6 @@ describe('Onderdeel API:', function() {
         .send({
           titel: 'Stock Exchange',
           omschrijving: 'Gratis bier!',
-          dag: new Date('24/08/2016'),
           start: new Date('21:00'),
           eind: new Date('22:00'),
           taken: [{titel: 'Opbouwen'}, {titel: 'Afbouwen'}]
