@@ -61,7 +61,8 @@ function handleError(res, statusCode) {
 
 // Gets a list of Taaks
 export function index(req, res) {
-  return Taak.find().exec()
+  return Taak
+    .find().populate({path: 'onderdeel', select: '-taken'}).exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
