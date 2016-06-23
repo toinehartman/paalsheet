@@ -61,14 +61,16 @@ function handleError(res, statusCode) {
 
 // Gets a list of Onderdeels
 export function index(req, res) {
-  return Onderdeel.find().exec()
+  return Onderdeel
+    .find().populate({path: 'taken', select: '-onderdeel'}).exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
 // Gets a single Onderdeel from the DB
 export function show(req, res) {
-  return Onderdeel.findById(req.params.id).exec()
+  return Onderdeel
+    .findById(req.params.id).populate({path: 'taken', select: '-onderdeel'}).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -86,7 +88,8 @@ export function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
-  return Onderdeel.findById(req.params.id).exec()
+  return Onderdeel
+    .findById(req.params.id).populate({path: 'taken', select: '-onderdeel'}).exec()
     .then(handleEntityNotFound(res))
     .then(saveUpdates(req.body))
     .then(respondWithResult(res))
@@ -95,7 +98,8 @@ export function update(req, res) {
 
 // Deletes a Onderdeel from the DB
 export function destroy(req, res) {
-  return Onderdeel.findById(req.params.id).exec()
+  return Onderdeel
+    .findById(req.params.id).populate({path: 'taken', select: '-onderdeel'}).exec()
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));
