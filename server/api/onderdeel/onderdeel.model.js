@@ -10,9 +10,7 @@ var OnderdeelSchema = new mongoose.Schema({
   omschrijving: String,
   start: Date,
   eind: Date,
-  taken: [{
-    titel: String
-  }]
+  taken: [{type: mongoose.Schema.Types.ObjectId, ref: 'Taak'}]
 });
 
 export default mongoose.model('Onderdeel', OnderdeelSchema);
