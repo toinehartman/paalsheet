@@ -37,9 +37,8 @@ describe('Onderdeel API:', function() {
         .send({
           titel: 'Stock Exchange',
           omschrijving: 'Gratis bier!',
-          start: new Date('21:00'),
-          eind: new Date('22:00'),
-          taken: [{titel: 'Opbouwen'}, {titel: 'Afbouwen'}]
+          start: new Date(2016, 7, 22, 21, 0),
+          eind: new Date(2016, 7, 22, 22, 0)
         })
         .expect(201)
         .expect('Content-Type', /json/)
@@ -97,8 +96,7 @@ describe('Onderdeel API:', function() {
         .put('/api/onderdelen/' + newOnderdeel._id)
         .send({
           titel: 'DJ PJ',
-          omschrijving: 'Wat een baas, die man!',
-          taken: [{titel: 'Pulletjes aanreiken'}]
+          omschrijving: 'Wat een baas, die man!'
         })
         .expect(200)
         .expect('Content-Type', /json/)

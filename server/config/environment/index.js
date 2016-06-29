@@ -22,7 +22,7 @@ var all = {
   port: process.env.PORT || 9000,
 
   // Server IP
-  ip: process.env.IP || '0.0.0.0',
+  ip: process.env.IP || '127.0.0.1',
 
   // Should we populate the DB with sample data?
   seedDB: false,
@@ -39,12 +39,6 @@ var all = {
         safe: true
       }
     }
-  },
-
-  google: {
-    clientID:     process.env.GOOGLE_ID || 'id',
-    clientSecret: process.env.GOOGLE_SECRET || 'secret',
-    callbackURL:  (process.env.DOMAIN || '') + '/auth/google/callback'
   }
 };
 

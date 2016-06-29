@@ -10,7 +10,8 @@ var TaakSchema = new mongoose.Schema({
   titel: String,
   onderdeel: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Onderdeel'
+    ref: 'Onderdeel',
+    default: null
   }
 });
 

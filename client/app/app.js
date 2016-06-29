@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('paalsheetApp', ['paalsheetApp.auth', 'paalsheetApp.admin', 'paalsheetApp.constants',
-    'ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'ui.bootstrap', 'validation.match'
+angular.module('paalsheetApp', ['paalsheetApp.constants', 'ngCookies', 'ngResource', 'ngSanitize',
+    'ngRoute', 'ui.bootstrap'
   ])
   .config(function($routeProvider, $locationProvider) {
     $routeProvider.otherwise({
