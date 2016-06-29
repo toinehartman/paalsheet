@@ -12,23 +12,3 @@ div.navbar.navbar-default.navbar-static-top(ng-controller='NavbarController')
       ul.nav.navbar-nav
         li(ng-repeat='item in nav.menu', ng-class='{active: nav.isActive(item.link)}')
           a(ng-href='{{item.link}}') {{item.title}}
-
-        li(ng-show='nav.isAdmin()', ng-class='{active: nav.isActive("/admin")}')
-          a(href='/admin') Admin
-
-      ul.nav.navbar-nav.navbar-right
-        li(ng-hide='nav.isLoggedIn()', ng-class='{active: nav.isActive("/signup")}')
-          a(href='/signup') Sign up
-
-        li(ng-hide='nav.isLoggedIn()', ng-class='{active: nav.isActive("/login")}')
-          a(href='/login') Login
-
-        li(ng-show='nav.isLoggedIn()')
-          p.navbar-text Hello {{ nav.getCurrentUser().name }}
-
-        li(ng-show='nav.isLoggedIn()', ng-class='{active: nav.isActive("/settings")}')
-          a(href='/settings')
-            span.glyphicon.glyphicon-cog
-
-        li(ng-show='nav.isLoggedIn()')
-          a(href='/logout') Logout
