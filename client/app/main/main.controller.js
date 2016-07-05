@@ -1,34 +1,63 @@
 'use strict';
 
-(function() {
+(function () {
 
   class MainController {
 
     constructor($http) {
       this.$http = $http;
-      this.awesomeThings = [];
     }
 
     $onInit() {
-      this.$http.get('/api/bondsleden')
-        .then(response => this.bondsleden = response.data);
-
       var timetable = new Timetable();
+      timetable.setScope(17, 3)
+      timetable.addLocations(['Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag']);
 
-      timetable.setScope(7,3)
+      function day(date) {
+        var realdate = new Date(date);
+        // if (realdate.getHours() <= 5) {
+        //   realdate.setDate(date.getDate() - 1)
+        // }
 
-      timetable.addLocations(['Maandag', 'Dinsdag', 'Woensdag', 'Donderdag']);
+        // console.log(date, realdate)
+        // console.log(date.getDay(), realdate.getDay())
 
-      timetable.addEvent('Sightseeing', 'Maandag', new Date(2016,7,17,10,45), new Date(2016,7,17,12,30), '#');
-      timetable.addEvent('Zumba', 'Dinsdag', new Date(2016,7,17,12), new Date(2016,7,17,13), '#');
-      timetable.addEvent('Zumbu', 'Dinsdag', new Date(2016,7,17,13,30), new Date(2016,7,17,15), '#');
-      timetable.addEvent('Lasergaming', 'Donderdag', new Date(2016,7,17,17,45), new Date(2016,7,17,19,30), '#');
-      timetable.addEvent('Tokyo Hackathon Livestream', 'Woensdag', new Date(2016,7,17,12,30), new Date(2016,7,17,16,15)); // url is optional and is not used for this event
+        return {
+          0: 'Zondag',
+          1: 'Maandag',
+          2: 'Dinsdag',
+          3: 'Woensdag',
+          4: 'Donderdag'
+        }[realdate.getDay()];
+      }
 
-      var renderer = new Timetable.Renderer(timetable);
-      renderer.draw('.timetable');
-    
+      Promise.all([
+        this.$http.get('/api/onderdelen'),
+        this.$http.get('/api/taken')
+      ]).then(values => {
+        var onderdelen = values[0].data;
+        var taken = values[1].data;
 
+        // console.log('Onderdelen:', onderdelen)
+
+        _.forEach(onderdelen, function (o) {
+          // console.log(o);
+          var s = new Date(o.start);
+          var e = new Date(o.eind);
+
+          timetable.addEvent(o.titel, day(s), s, e, o._id);
+
+          var renderer = new Timetable.Renderer(timetable);
+          renderer.draw('.timetable');
+        });
+
+        $('.time-entry').each(function (_, el) {
+          var id = $(this).attr('href');
+          $(this).removeAttr('href');
+          $(this).attr('id', id);
+          $(this).click((event) => console.log(event));
+        });
+      });
     }
   }
 
