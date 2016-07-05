@@ -51,6 +51,26 @@ Bondslid.find({}).remove()
     omschrijving: 'Kansloze drankspelletjes onder adellijke begeleiding',
     start: new Date(2016, 7, 22, 18, 30),
     eind: new Date(2016, 7, 22, 21, 30)
+  }, {
+    titel: 'OGD Stock Exchange',
+    omschrijving: 'Goedkoop bier',
+    start: new Date(2016, 7, 22, 21, 30),
+    eind: new Date(2016, 7, 22, 22, 30)
+  }, {
+    titel: 'De Klittenband',
+    omschrijving: 'Bandje!',
+    start: new Date(2016, 7, 22, 22, 30),
+    eind: new Date(2016, 7, 23, 0, 0)
+  }, {
+    titel: 'DJ PJ Neon Party',
+    omschrijving: 'Deze man!',
+    start: new Date(2016, 7, 22, 0, 0),
+    eind: new Date(2016, 7, 22, 3, 0)
+  }, {
+    titel: 'DJ PJ Neon Party 2',
+    omschrijving: 'Deze man!',
+    start: new Date(2016, 7, 22, 1, 0),
+    eind: new Date(2016, 7, 22, 3, 0)
   }))
 
   .then(() => Onderdeel.findOne({
