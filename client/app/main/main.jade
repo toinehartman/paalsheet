@@ -35,3 +35,22 @@ header#banner.hero-unit
         button.btn.btn-default(type="button", data-dismiss="modal") Close
         button.btn.btn-primary(type="button") Save changes
 
+.modal.fade#myInlogModal(tabindex="-1", role="dialog", aria-labelledby="Test Modal")
+  .modal-dialog(role="document")
+    .modal-content
+      .modal-header
+        button.close(type="button", data-dismiss="modal")
+          span(aria-hidden="true") &times;
+        h4.modal-title(id="Test Modal") Login
+      .modal-body
+        form.form-inline
+          .form-group
+            label Naam
+            input(type="text", id="voornaam", placeholder="Voornaam").form-control
+            input(type="text", id="achternaam", placeholder="Achternaam").form-control
+          .form-group
+            label(for="inputEmail") Email
+            input(type="email", id="email", placeholder="Email").form-control
+      .modal-footer
+        //- button.btn.btn-default(type="button", data-dismiss="modal") Close
+        button.btn.btn-primary(type="button") Log in ...

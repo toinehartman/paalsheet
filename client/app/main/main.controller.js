@@ -14,6 +14,8 @@
       //     this.bondsleden = response.data
       //   console.log(this.bondsleden)
       //   })
+
+      var inlogModal = $('#myInlogModal').modal()
         
       var timetable = new Timetable();
       timetable.setScope(17, 3)
