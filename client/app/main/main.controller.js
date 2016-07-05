@@ -6,10 +6,15 @@
 
     constructor($http) {
       this.$http = $http;
-      this.t = [];
     }
 
     $onInit() {
+      // this.$http.get('/api/bondsleden')
+      //   .then(response => {
+      //     this.bondsleden = response.data
+      //   console.log(this.bondsleden)
+      //   })
+        
       var timetable = new Timetable();
       timetable.setScope(17, 3)
       timetable.addLocations(['Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag']);
@@ -40,7 +45,7 @@
         var taken = values[1].data;
 
         // console.log('Onderdelen:', onderdelen)
-        console.log('Taken:', taken)
+        // console.log('Taken:', taken)
 
         _.forEach(onderdelen, function (o) {
           // console.log(o);
@@ -58,15 +63,19 @@
           $(this).removeAttr('href');
           $(this).attr('id', id);
           $(this).click((event) => {
-            // console.log(event);
             var curTar = event.currentTarget;
-            // console.log(curId);
             var modal = $('#myModal');
             modal.modal();
             modal.find('.modal-title').text('Onderdelen voor ' + curTar.innerText);
-            // modal.find('.modal-body').text(curTar.id);
-            this.t = taken.filter((t) => t.onderdeel._id == curTar.id);
-            console.log(this.t[0].titel);
+            var body = modal.find('.modal-body');
+            body.text('');
+            var t = taken.filter((t) => t.onderdeel._id == curTar.id);
+            body.append('<form>')
+            t.forEach(function(entry) {
+              console.log(entry);
+              body.append('<input type="checkbox", id="' + entry._id + '"> ' + entry.titel + '<br>')
+            })
+            body.append('</form>')
           });
         });
       });

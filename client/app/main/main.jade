@@ -23,11 +23,6 @@ header#banner.hero-unit
       h1.page-header Timetable:
       .timetable
 
-.container
-  .row
-    .col-lg-12
-      button.btn.btn-primary.btn-lg(type="button", data-toggle="modal", data-target="#myModal") Launch modal
-
 .modal.fade#myModal(tabindex="-1", role="dialog", aria-labelledby="Test Modal")
   .modal-dialog(role="document")
     .modal-content
@@ -36,9 +31,6 @@ header#banner.hero-unit
           span(aria-hidden="true") &times;
         h4.modal-title(id="Test Modal") Title
       .modal-body
-        //- | Hoi dit is de body...
-        ul(ng-repeat='taak in $ctrl.t') 
-          li Title: {{taak.titel}}
       .modal-footer
         button.btn.btn-default(type="button", data-dismiss="modal") Close
         button.btn.btn-primary(type="button") Save changes
