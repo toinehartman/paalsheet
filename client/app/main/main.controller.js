@@ -6,6 +6,7 @@
 
     constructor($http) {
       this.$http = $http;
+      this.t = [];
     }
 
     $onInit() {
@@ -39,6 +40,7 @@
         var taken = values[1].data;
 
         // console.log('Onderdelen:', onderdelen)
+        console.log('Taken:', taken)
 
         _.forEach(onderdelen, function (o) {
           // console.log(o);
@@ -55,7 +57,17 @@
           var id = $(this).attr('href');
           $(this).removeAttr('href');
           $(this).attr('id', id);
-          $(this).click((event) => console.log(event));
+          $(this).click((event) => {
+            // console.log(event);
+            var curTar = event.currentTarget;
+            // console.log(curId);
+            var modal = $('#myModal');
+            modal.modal();
+            modal.find('.modal-title').text('Onderdelen voor ' + curTar.innerText);
+            // modal.find('.modal-body').text(curTar.id);
+            this.t = taken.filter((t) => t.onderdeel._id == curTar.id);
+            console.log(this.t[0].titel);
+          });
         });
       });
     }
