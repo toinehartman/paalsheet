@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('paalsheetApp', ['paalsheetApp.constants', 'ngCookies', 'ngResource', 'ngSanitize',
-    'ngRoute', 'ui.bootstrap'
+    'ngRoute', 'ui.bootstrap', 'ui.calendar'
   ])
   .config(function($routeProvider, $locationProvider) {
     $routeProvider.otherwise({
@@ -10,3 +10,6 @@ angular.module('paalsheetApp', ['paalsheetApp.constants', 'ngCookies', 'ngResour
 
     $locationProvider.html5Mode(false);
   });
+
+
+

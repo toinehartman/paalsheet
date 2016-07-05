@@ -1,6 +1,6 @@
 'use strict';
 
-(function() {
+(function($scope) {
 
   class MainController {
 
@@ -10,6 +10,7 @@
     }
 
     $onInit() {
+      $scope.eventSources = [];
       this.$http.get('/api/bondsleden')
         .then(response => this.bondsleden = response.data);
     }
