@@ -20,13 +20,21 @@
       //   console.log(this.bondsleden)
       //   })
 
+      var user = this.user
+
+      this.$http.post('/api/bondsleden', user)
+        // .then(response => {
+        //   var respText = response.data
+        // console.log(respText)
+        // })
+
       var inlogModal = $('#myInlogModal').modal(
       {
         backdrop: 'static',
         keyboard: false
       });
 
-      var user = this.user
+      
 
       $('#sbm-btn').click(function(event) {
 
@@ -104,7 +112,11 @@
             var t = taken.filter((t) => t.onderdeel._id == curTar.id);
             body.append('<form>');
             t.forEach(function(entry) {
-              body.append('<input type="checkbox", id="' + entry._id + '"> ' + entry.titel + '<br>')
+              if (user.tasks.indexOf(entry._id) == -1) {
+                body.append('<input type="checkbox", id="' + entry._id + '"> ' + entry.titel + '<br>')
+              } else {
+                body.append('<input type="checkbox", id="' + entry._id + '", checked> ' + entry.titel + '<br>')
+              }
             });
             body.append('</form>');
           });
@@ -126,6 +138,7 @@
             }
           }
           console.log(user.tasks)
+          modal.modal('hide')
         });
 
         // //Todo: voor elke modal met taken check bij tasks van user
