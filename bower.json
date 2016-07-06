@@ -25,8 +25,5 @@
         "dist/styles/timetablejs.css"
       ]
     }
-  },
-  "resolutions": {
-    "bootstrap": "^3.3.6"
   }
 }
