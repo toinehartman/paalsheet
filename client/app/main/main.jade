@@ -34,8 +34,8 @@ header#banner.hero-unit
         h4.modal-title(id="Test Modal") Title
       .modal-body
       .modal-footer
-        button.btn.btn-default(type="button", data-dismiss="modal") Close
-        button.btn.btn-primary(type="button") Save changes
+        button.btn.btn-default(type="button", data-dismiss="modal") Sluit
+        button.btn.btn-primary#opslaan-btn(type="button") Opslaan
 
 .modal.fade#myInlogModal(tabindex="-1", role="dialog", aria-labelledby="Test Modal", data-target="#myInlogModal")
   .modal-dialog(role="document")
@@ -55,9 +55,6 @@ header#banner.hero-unit
           .modal-footer
             .form-group
               button.btn.btn-primary(type="button", id="sbm-btn") Log in ...
-          //- .modal-footer
-            button.btn.btn-primary(type="submit") Log in ...
-        //- button.btn.btn-default(type="button", data-dismiss="modal") Close
 
 .modal.fade#errModal(tabindex="-1", role="dialog", aria-labelledby="Error Modal")
   .modal-dialog(role="document")
@@ -69,6 +66,5 @@ header#banner.hero-unit
       .modal-body
         p Vul alle gegevens in ...
       .modal-footer
-        button.btn.btn-default(type="button", data-dismiss="modal") Close
-        //- button.btn.btn-primary(type="button") Save changes
+        button.btn.btn-default(type="button", data-dismiss="modal") Sluit
         

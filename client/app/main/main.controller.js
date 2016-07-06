@@ -42,7 +42,6 @@
           user.firstname = formInVoornaam
           user.lastname = formInAchternaam
           user.email = formInEmail
-          console.log(user)
         }
 
       });
@@ -90,25 +89,43 @@
           renderer.draw('.timetable');
         });
 
+        var modal = $('#myModal');
+        var body = modal.find('.modal-body');
+
         $('.time-entry').each(function (_, el) {
           var id = $(this).attr('href');
           $(this).removeAttr('href');
-          $(this).attr('id', id);
+          $(this).attr('id', id);          
           $(this).click((event) => {
             var curTar = event.currentTarget;
-            var modal = $('#myModal');
             modal.modal();
             modal.find('.modal-title').text('Onderdelen voor ' + curTar.innerText);
-            var body = modal.find('.modal-body');
             body.text('');
             var t = taken.filter((t) => t.onderdeel._id == curTar.id);
-            body.append('<form>')
+            body.append('<form>');
             t.forEach(function(entry) {
-              console.log(entry);
               body.append('<input type="checkbox", id="' + entry._id + '"> ' + entry.titel + '<br>')
-            })
-            body.append('</form>')
+            });
+            body.append('</form>');
           });
+        });
+
+        modal.find('#opslaan-btn').click((event2) => {
+          var tasksChecked = body.find('input:checked')
+          for (var i=0; i < tasksChecked.length; i++) {
+            if (user.tasks.indexOf(tasksChecked[i].id) == -1) {
+              user.tasks.push(tasksChecked[i].id)
+            }
+          }
+
+          var tasksUnchecked = body.find('input:not(:checked)')
+          for (var i=0; i < tasksUnchecked.length; i++) {
+            var taskIndex = user.tasks.indexOf(tasksUnchecked[i].id) 
+            if (taskIndex != -1) {
+              user.tasks.splice(taskIndex, 1)
+            }
+          }
+          console.log(user.tasks)
         });
 
         // //Todo: voor elke modal met taken check bij tasks van user
