@@ -6,6 +6,11 @@
 
     constructor($http) {
       this.$http = $http;
+      this.user = {
+        firstname: '',
+        lastname: '',
+        email: '',
+        tasks: []};
     }
 
     $onInit() {
@@ -15,7 +20,32 @@
       //   console.log(this.bondsleden)
       //   })
 
-      var inlogModal = $('#myInlogModal').modal()
+      var inlogModal = $('#myInlogModal').modal(
+      {
+        backdrop: 'static',
+        keyboard: false
+      });
+
+      var user = this.user
+
+      $('#sbm-btn').click(function(event) {
+
+        var formInVoornaam = $('#loginForm input:text#voornaam')[0].value;
+        var formInAchternaam = $('#loginForm input:text#achternaam')[0].value;
+        var formInEmail = $('#loginForm input#email')[0].value;
+
+        if (((formInVoornaam || formInAchternaam || formInEmail) == '') 
+          || !validateEmail(formInEmail)) {
+           $('#errModal').modal()
+        } else {
+          $('#myInlogModal').modal('hide')
+          user.firstname = formInVoornaam
+          user.lastname = formInAchternaam
+          user.email = formInEmail
+          console.log(user)
+        }
+
+      });
         
       var timetable = new Timetable();
       timetable.setScope(17, 3)
@@ -80,8 +110,32 @@
             body.append('</form>')
           });
         });
+
+        // //Todo: voor elke modal met taken check bij tasks van user
+        // // of deze taak al in lijst zit.
+
+        // // Vul gegevens met die van de login modal.
+        // this.user = {
+        //   firstname: text1,
+        //   lastname: text2,
+        //   email: text3,
+        //   tasks: []
+        // }
+
+        // // toevoegen als er iets aangevinkt wordt, anders weer verwijderen.
+        // // Kijk of hij niet al betaat.
+        // this.user.tasks.append("id1");
+
+        // // Stuur gebruiker naar de database.
+        // this.$http.post('/api/bondslid', this.user)
       });
     }
+  }
+
+  function validateEmail(email) {
+  // var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  var re = /\S+@\S+/
+  return re.test(email);
   }
 
   angular.module('paalsheetApp')

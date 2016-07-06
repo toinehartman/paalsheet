@@ -1,3 +1,5 @@
+
+
 header#banner.hero-unit
   .container
     h1 OWee, OWee!
@@ -35,22 +37,38 @@ header#banner.hero-unit
         button.btn.btn-default(type="button", data-dismiss="modal") Close
         button.btn.btn-primary(type="button") Save changes
 
-.modal.fade#myInlogModal(tabindex="-1", role="dialog", aria-labelledby="Test Modal")
+.modal.fade#myInlogModal(tabindex="-1", role="dialog", aria-labelledby="Test Modal", data-target="#myInlogModal")
+  .modal-dialog(role="document")
+    .modal-content
+      .modal-header
+        h4.modal-title(id="Test Modal") Login
+      .modal-body
+        form(id="loginForm")
+          .form-inline
+            .form-group
+              label.control-label Naam
+              input(type="text", id="voornaam", placeholder="Voornaam" required).form-control
+              input(type="text", id="achternaam", placeholder="Achternaam" required).form-control
+            .form-group
+              label(for="inputEmail").control-label Email
+              input(type="email", id="email", placeholder="Email", required).form-control
+          .modal-footer
+            .form-group
+              button.btn.btn-primary(type="button", id="sbm-btn") Log in ...
+          //- .modal-footer
+            button.btn.btn-primary(type="submit") Log in ...
+        //- button.btn.btn-default(type="button", data-dismiss="modal") Close
+
+.modal.fade#errModal(tabindex="-1", role="dialog", aria-labelledby="Error Modal")
   .modal-dialog(role="document")
     .modal-content
       .modal-header
         button.close(type="button", data-dismiss="modal")
           span(aria-hidden="true") &times;
-        h4.modal-title(id="Test Modal") Login
+        h4.modal-title(id="Test Modal") Error
       .modal-body
-        form.form-inline
-          .form-group
-            label Naam
-            input(type="text", id="voornaam", placeholder="Voornaam").form-control
-            input(type="text", id="achternaam", placeholder="Achternaam").form-control
-          .form-group
-            label(for="inputEmail") Email
-            input(type="email", id="email", placeholder="Email").form-control
+        p Vul alle gegevens in ...
       .modal-footer
-        //- button.btn.btn-default(type="button", data-dismiss="modal") Close
-        button.btn.btn-primary(type="button") Log in ...
+        button.btn.btn-default(type="button", data-dismiss="modal") Close
+        //- button.btn.btn-primary(type="button") Save changes
+        

@@ -61,3 +61,34 @@ screen_max_width_550 = "only screen and (max-width: 550px)"
 
 input
   margin 10px
+
+// form:not([novalidate]) input:required,
+// form:not([novalidate]) textarea:required {
+//   background: orange;
+// }
+
+form:not([novalidate]) input:required:valid,
+form:not([novalidate]) textarea:required:valid {
+  background: #18bc9c;
+  -webkit-box-shadow: 0 0 5px #5cd053;
+  box-shadow: 0 0 5px #5cd053;
+  -o-box-shadow: 0 0 5px #5cd053;
+  -moz-box-shadow: 0 0 5px #5cd053;
+  border-color: #28921f
+}
+
+form:not([novalidate]) input:not(:focus):valid,
+form:not([novalidate]) textarea:not(:focus):valid {
+  box-shadow: none;
+  border: 1px solid #d2d2d2
+}
+
+form:not([novalidate]) input:focus:invalid,
+form:not([novalidate]) textarea:focus:invalid {
+  background: orange;
+  -webkit-box-shadow: 0 0 5px #d45252;
+  box-shadow: 0 0 5px #d45252;
+  -o-box-shadow: 0 0 5px #d45252;
+  -moz-box-shadow: 0 0 5px #d45252;
+  border-color: #b03535
+}
