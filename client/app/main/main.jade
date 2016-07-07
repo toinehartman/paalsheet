@@ -51,7 +51,7 @@ header#banner.hero-unit
               input(type="text", id="achternaam", placeholder="Achternaam" required).form-control
             .form-group
               label(for="inputEmail").control-label Email
-              input(type="email", id="email", placeholder="Email", required).form-control
+              input(type="email", id="email", placeholder="Email", pattern="[a-zA-Z0-9]+[_a-zA-Z0-9\.-]*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-z]{2,4})", required).form-control
           .modal-footer
             .form-group
               button.btn.btn-primary(type="button", id="sbm-btn") Log in ...

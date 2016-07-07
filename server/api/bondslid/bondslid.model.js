@@ -15,7 +15,7 @@ var BondslidSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+    match: [/[a-z0-9]+[_a-z0-9\.-]*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})/i, 'Please fill a valid email address']
   },
   tasks: [{
     type: mongoose.Schema.Types.ObjectId,

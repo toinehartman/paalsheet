@@ -11,6 +11,7 @@
         lastname: '',
         email: '',
         tasks: []};
+      this.userID = '';
     }
 
     $onInit() {
@@ -20,13 +21,9 @@
       //   console.log(this.bondsleden)
       //   })
 
+      var $httpInit = this.$http
       var user = this.user
-
-      this.$http.post('/api/bondsleden', user)
-        // .then(response => {
-        //   var respText = response.data
-        // console.log(respText)
-        // })
+      var userID = this.user
 
       var inlogModal = $('#myInlogModal').modal(
       {
@@ -50,6 +47,15 @@
           user.firstname = formInVoornaam
           user.lastname = formInAchternaam
           user.email = formInEmail
+
+          var stringJSON = JSON.stringify(user)
+          $httpInit.post('/api/bondsleden', stringJSON)
+            .then(successGetID, errorCallback);
+
+          function successGetID (response) {
+            userID = response.data._id
+          }
+
         }
 
       });
@@ -139,6 +145,13 @@
           }
           console.log(user.tasks)
           modal.modal('hide')
+
+          console.log(userID)
+          var stringJSON2 = JSON.stringify(user)
+          $httpInit.put('/api/bondsleden/' + userID , stringJSON2)
+            .then(successCallback, errorCallback);
+
+          
         });
 
         // //Todo: voor elke modal met taken check bij tasks van user
@@ -164,8 +177,16 @@
 
   function validateEmail(email) {
   // var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  var re = /\S+@\S+/
+  var re = /[a-z0-9]+[_a-z0-9\.-]*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})/i
   return re.test(email);
+  }
+
+  function successCallback (response) {
+    console.log(response)
+  }
+
+  function errorCallback (response) {
+    console.log(response)
   }
 
   angular.module('paalsheetApp')
