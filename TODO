@@ -1,0 +1,8 @@
+Frontend:
+   ☐  Pas inloggen als alle velden ingevuld zijn @critical
+   ☐  Versies bower vernieuwen @low
+Backend:
+ ☐  Alle onderdelen toevoegen @critical
+ ☐  Versies node modules vernieuwen @low
+Gulp:
+  ☐  Productie repareren @critical
