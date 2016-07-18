@@ -61,7 +61,7 @@
       });
         
       var timetable = new Timetable();
-      timetable.setScope(17, 3)
+      timetable.setScope(16, 3)
       timetable.addLocations(['Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag']);
 
       function day(date) {
@@ -97,7 +97,13 @@
           var s = new Date(o.start);
           var e = new Date(o.eind);
 
-          timetable.addEvent(o.titel, day(s), s, e, o._id);
+          var options = {
+            data: {
+              id: o._id
+            }
+          }
+
+          timetable.addEvent(o.titel, day(s), s, e, options);
 
           var renderer = new Timetable.Renderer(timetable);
           renderer.draw('.timetable');
@@ -107,15 +113,13 @@
         var body = modal.find('.modal-body');
 
         $('.time-entry').each(function (_, el) {
-          var id = $(this).attr('href');
-          $(this).removeAttr('href');
-          $(this).attr('id', id);          
+          var id = $(this).data('id');        
           $(this).click((event) => {
             var curTar = event.currentTarget;
             modal.modal();
             modal.find('.modal-title').text('Onderdelen voor ' + curTar.innerText);
             body.text('');
-            var t = taken.filter((t) => t.onderdeel._id == curTar.id);
+            var t = taken.filter((t) => t.onderdeel._id == id);
             body.append('<form>');
             t.forEach(function(entry) {
               if (user.tasks.indexOf(entry._id) == -1) {
@@ -151,26 +155,7 @@
           $httpInit.put('/api/bondsleden/' + userID , stringJSON2)
             .then(successCallback, errorCallback);
 
-          
         });
-
-        // //Todo: voor elke modal met taken check bij tasks van user
-        // // of deze taak al in lijst zit.
-
-        // // Vul gegevens met die van de login modal.
-        // this.user = {
-        //   firstname: text1,
-        //   lastname: text2,
-        //   email: text3,
-        //   tasks: []
-        // }
-
-        // // toevoegen als er iets aangevinkt wordt, anders weer verwijderen.
-        // // Kijk of hij niet al betaat.
-        // this.user.tasks.append("id1");
-
-        // // Stuur gebruiker naar de database.
-        // this.$http.post('/api/bondslid', this.user)
       });
     }
   }
