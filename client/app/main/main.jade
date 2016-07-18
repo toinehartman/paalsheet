@@ -1,3 +1,5 @@
+
+
 header#banner.hero-unit
   .container
     h1 OWee, OWee!
@@ -7,11 +9,62 @@ header#banner.hero-unit
 
     img(src='assets/images/makeamove.png', alt='Make a Move!', width='30%', height='30%')
 
+//- .container
+//-   .row
+//-     .col-lg-12
+//-       h1.page-header Bondsleden:
+//-       ul.col-md-4.col-lg-4.col-sm-6(ng-repeat='bondslid in $ctrl.bondsleden')
+//-         li
+//-           a(href='/api/bondsleden/{{bondslid._id}}', uib-tooltip='{{bondslid.email}}')
+//-             | {{bondslid.firstname}} {{bondslid.lastname}}
+
+
 .container
   .row
     .col-lg-12
-      h1.page-header Bondsleden:
-      ul.col-md-4.col-lg-4.col-sm-6(ng-repeat='bondslid in $ctrl.bondsleden')
-        li
-          a(href='/api/bondsleden/{{bondslid._id}}', uib-tooltip='{{bondslid.email}}')
-            | {{bondslid.firstname}} {{bondslid.lastname}}
+      h1.page-header Timetable:
+      .timetable
+
+.modal.fade#myModal(tabindex="-1", role="dialog", aria-labelledby="Test Modal")
+  .modal-dialog(role="document")
+    .modal-content
+      .modal-header
+        button.close(type="button", data-dismiss="modal")
+          span(aria-hidden="true") &times;
+        h4.modal-title(id="Test Modal") Title
+      .modal-body
+      .modal-footer
+        button.btn.btn-default(type="button", data-dismiss="modal") Sluit
+        button.btn.btn-primary#opslaan-btn(type="button") Opslaan
+
+.modal.fade#myInlogModal(tabindex="-1", role="dialog", aria-labelledby="Test Modal", data-target="#myInlogModal")
+  .modal-dialog(role="document")
+    .modal-content
+      .modal-header
+        h4.modal-title(id="Test Modal") Login
+      .modal-body
+        form(id="loginForm")
+          .form-inline
+            .form-group
+              label.control-label Naam
+              input(type="text", id="voornaam", placeholder="Voornaam" required).form-control
+              input(type="text", id="achternaam", placeholder="Achternaam" required).form-control
+            .form-group
+              label(for="inputEmail").control-label Email
+              input(type="email", id="email", placeholder="Email", pattern="[a-zA-Z0-9]+[_a-zA-Z0-9\.-]*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-z]{2,4})", required).form-control
+          .modal-footer
+            .form-group
+              button.btn.btn-primary(type="button", id="sbm-btn") Log in ...
+
+.modal.fade#errModal(tabindex="-1", role="dialog", aria-labelledby="Error Modal")
+  .modal-dialog(role="document")
+    .modal-content
+      .modal-header
+        button.close(type="button", data-dismiss="modal")
+          span(aria-hidden="true") &times;
+        h4.modal-title(id="Test Modal") Error
+      .modal-body
+        p Vul alle gegevens in ...
+      .modal-footer
+        button.btn.btn-default(type="button", data-dismiss="modal") Sluit
+        
