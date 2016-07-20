@@ -33,7 +33,7 @@ export default function(app) {
 
   app.set('appPath', path.join(config.root, 'client'));
   app.use(express.static(app.get('appPath')));
-  app.use(morgan('dev'));
+  app.use(morgan('short'));
 
   app.set('views', config.root + '/server/views');
   app.set('view engine', 'jade');
