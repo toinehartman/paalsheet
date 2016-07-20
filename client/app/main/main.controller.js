@@ -168,7 +168,7 @@
 
               console.log(userID)
               var stringJSON2 = JSON.stringify(user)
-              $httpInit.put('/api/bondsleden/' + userID , stringJSON2).then(successCallback, errorCallback);
+              // $httpInit.put('/api/bondsleden/' + userID , stringJSON2).then(successCallback, errorCallback);
             });
           });
         }
