@@ -67,7 +67,10 @@
           }).get();
 
           var opmerking = $('textarea.opmerking').get(0).value;
-          var mentor = $('input.mentor:checked').get(0).value;
+          var mentor = $('input.mentor:checked').get(0);
+
+          if (mentor === undefined)
+            mentor = 0;
 
           user.dagen = dagen;
           user.praam = praam;
@@ -78,8 +81,9 @@
 
           // console.log(user);
           // console.log(userID);
-          this.$http.put('/api/bondsleden/' + userID, JSON.stringify(user))
-            .then(successCallback, errorCallback);
+          this.$http.put('/api/bondsleden/' + userID, JSON.stringify(user)).then((reponse) => {
+            alert('Je gegevens zijn succesvol opgeslagen, bedankt!');
+          }, errorCallback);
         })
 
         var timetable = new Timetable();
@@ -164,9 +168,7 @@
 
               console.log(userID)
               var stringJSON2 = JSON.stringify(user)
-              $httpInit.put('/api/bondsleden/' + userID , stringJSON2)
-              .then(successCallback, errorCallback);
-
+              $httpInit.put('/api/bondsleden/' + userID , stringJSON2).then(successCallback, errorCallback);
             });
           });
         }
