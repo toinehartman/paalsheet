@@ -61,7 +61,7 @@ function handleError(res, statusCode) {
 
 // Gets a list of Bondslids
 export function index(req, res) {
-  return Bondslid.find().exec()
+  return Bondslid.find().populate({path: 'tasks', select: '-onderdeel'}).exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
