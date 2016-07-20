@@ -20,7 +20,14 @@ var BondslidSchema = new mongoose.Schema({
   tasks: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Taak'
-  }]
+  }],
+  dagen: [String],
+  praam: [String],
+  bonnen: Number,
+  opmerking: String,
+  mentor: Number,
+  busje: [String],
+  balie: [String]
 });
 
 export default mongoose.model('Bondslid', BondslidSchema);
