@@ -21,8 +21,8 @@
 
         var inlogModal = $('#myInlogModal').modal(
         {
-          // backdrop: 'static',
-          // keyboard: false
+          backdrop: 'static',
+          keyboard: false
         });
 
         $('#sbm-btn').click(function(event) {
