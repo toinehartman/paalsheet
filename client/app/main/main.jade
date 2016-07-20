@@ -1,29 +1,141 @@
 
 
-header#banner.hero-unit
-  .container
-    h1 OWee, OWee!
-    p.lead
-      | Het is belangrijk dat iedereen helpt in de OWee.
-      | Geef hier aan wanneer je beschikbaar bent en wat je wilt doen.
+//- header#banner.hero-unit
+//-   .container
+//-     h1 OWee, OWee!
+//-     p.lead
+//-       | Het is belangrijk dat iedereen helpt in de OWee.
+//-       | Geef hier aan wanneer je beschikbaar bent en wat je wilt doen.
 
-    img(src='assets/images/makeamove.png', alt='Make a Move!', width='30%', height='30%')
-
-//- .container
-//-   .row
-//-     .col-lg-12
-//-       h1.page-header Bondsleden:
-//-       ul.col-md-4.col-lg-4.col-sm-6(ng-repeat='bondslid in $ctrl.bondsleden')
-//-         li
-//-           a(href='/api/bondsleden/{{bondslid._id}}', uib-tooltip='{{bondslid.email}}')
-//-             | {{bondslid.firstname}} {{bondslid.lastname}}
-
+//-     img(src='assets/images/makeamove.png', alt='Make a Move!', width='30%', height='30%')
 
 .container
   .row
     .col-lg-12
-      h1.page-header Timetable:
-      .timetable
+      .container
+        h3 Ben je mentor?
+        .radio-inline
+          input.mentor(type="radio", name="mentor", value="1")
+          | Ja
+        .radio-inline
+          input.mentor(type="radio", name="mentor", value="0")
+          | Nee
+        .radio-inline
+          input.mentor(type="radio", name="mentor", value="2")
+          | Ja, maar ik zoek nog een maatje
+        .radio-inline
+          input.mentor(type="radio", name="mentor", value="3")
+          | Ja, maar ik wacht nog op bevestiging
+        br
+      .container
+        h3 Ik ben een koning(in), want ik ben er deze dagen gewoon helemaal bij:
+        label.checkbox-inline
+          input.dagen(type="checkbox", name="dagen", value="zondag")
+          | Zondag
+        label.checkbox-inline
+          input.dagen(type="checkbox", name="dagen", value="maandag")
+          | Maandag
+        label.checkbox-inline
+          input.dagen(type="checkbox", name="dagen", value="dinsdag")
+          | Dinsdag
+        label.checkbox-inline
+          input.dagen(type="checkbox", name="dagen", value="woensdag")
+          | Woensdag
+        label.checkbox-inline
+          input.dagen(type="checkbox", name="dagen", value="donderdag")
+          | Donderdag
+        label.checkbox-inline
+          input.dagen(type="checkbox", name="dagen", value="vrijdag")
+          | Vrijdag (opruimen)
+        br
+        label Dan hoef je natuurlijk geen afzonderlijke activiteiten aan te vinken voor deze dag(en).
+      .container
+        h3 Ik ben nuchter, in het bezit van een B-rijbewijs en kan busje rijden op:
+        label.checkbox-inline
+          input.busje(type="checkbox", name="busje", value="zondag")
+          | Zondag
+        label.checkbox-inline
+          input.busje(type="checkbox", name="busje", value="maandag")
+          | Maandag
+        label.checkbox-inline
+          input.busje(type="checkbox", name="busje", value="dinsdag")
+          | Dinsdag
+        label.checkbox-inline
+          input.busje(type="checkbox", name="busje", value="woensdag")
+          | Woensdag
+        label.checkbox-inline
+          input.busje(type="checkbox", name="busje", value="donderdag")
+          | Donderdag
+        label.checkbox-inline
+          input.busje(type="checkbox", name="busje", value="vrijdag")
+          | Vrijdag
+        br
+      .container
+        h3 Ik wil de munten-/inschrijfbalie bemannen op:
+        label.checkbox-inline
+          input.balie(type="checkbox", name="balie", value="maandag overdag")
+          | Maandag overdag
+        label.checkbox-inline
+          input.balie(type="checkbox", name="balie", value="maandag avond")
+          | Maandagavond
+        label.checkbox-inline
+          input.balie(type="checkbox", name="balie", value="dinsdag overdag")
+          | Dinsdag overdag
+        label.checkbox-inline
+          input.balie(type="checkbox", name="balie", value="dinsdag avond")
+          | Dinsdagavond
+        label.checkbox-inline
+          input.balie(type="checkbox", name="balie", value="woensdag overdag")
+          | Woensdag overdag
+        label.checkbox-inline
+          input.balie(type="checkbox", name="balie", value="woensdag avond")
+          | Woensdagavond
+        label.checkbox-inline
+          input.balie(type="checkbox", name="balie", value="donderdag overdag")
+          | Donderdag overdag
+        label.checkbox-inline
+          input.balie(type="checkbox", name="balie", value="donderdag avond")
+          | Donderdagavond
+        br
+      .container
+        h3 Ik kan op deze momenten helpen met de praam:
+        label.checkbox-inline
+          input.praam(type="checkbox", name="praam", value="op-zondag")
+          | Opbouwen zondag
+        label.checkbox-inline
+          input.praam(type="checkbox", name="praam", value="af-zondag")
+          | Afbouwen zondag
+        label.checkbox-inline
+          input.praam(type="checkbox", name="praam", value="op-maandag")
+          | Opbouwen maandag
+        label.checkbox-inline
+          input.praam(type="checkbox", name="praam", value="af-maandag")
+          | Afbouwen maandag
+        label.checkbox-inline
+          input.praam(type="checkbox", name="praam", value="op-dinsdag")
+          | Opbouwen dinsdag
+        label.checkbox-inline
+          input.praam(type="checkbox", name="praam", value="af-dinsdag")
+          | Afbouwen dinsdag
+        label.checkbox-inline
+          input.praam(type="checkbox", name="praam", value="op-woensdag")
+          | Opbouwen woensdag
+        label.checkbox-inline
+          input.praam(type="checkbox", name="praam", value="af-woensdag")
+          | Afbouwen woensdag
+        label.checkbox-inline
+          input.praam(type="checkbox", name="praam", value="op-donderdag")
+          | Opbouwen donderdag
+        label.checkbox-inline
+          input.praam(type="checkbox", name="praam", value="af-donderdag")
+          | Afbouwen donderdag
+      .container
+        h3 Klik op een onderdeel om aan te geven waar je bij kan helpen
+        .timetable
+      .container
+        textarea.opmerking(name="opmerking", cols="40", rows="5")
+        br
+        button#save-btn.btn.btn-success(type="button") Opslaan
 
 .modal.fade#myModal(tabindex="-1", role="dialog", aria-labelledby="Test Modal")
   .modal-dialog(role="document")
@@ -44,17 +156,37 @@ header#banner.hero-unit
         h4.modal-title(id="Test Modal") Login
       .modal-body
         form(id="loginForm")
-          .form-inline
-            .form-group
-              label.control-label Naam
+          .form
+            .form-group.form-inline
+              label(for="voornaam").control-label Naam
               input(type="text", id="voornaam", placeholder="Voornaam" required).form-control
               input(type="text", id="achternaam", placeholder="Achternaam" required).form-control
-            .form-group
+            .form-group.form-inline
               label(for="inputEmail").control-label Email
               input(type="email", id="email", placeholder="Email", pattern="[a-zA-Z0-9]+[_a-zA-Z0-9\.-]*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-z]{2,4})", required).form-control
+            .form-group
+              .container
+                .radio
+                  input.bonnen(type="radio", name="bonnen", value="0")
+                  | Geen bonnen
+                .radio
+                  input.bonnen(type="radio", name="bonnen", value="1")
+                  | 1 bon €4
+                .radio
+                  input.bonnen(type="radio", name="bonnen", value="2")
+                  | 2 bonnen €7
+                .radio
+                  input.bonnen(type="radio", name="bonnen", value="3")
+                  | 3 bonnen €9,50
+                .radio
+                  input.bonnen(type="radio", name="bonnen", value="4")
+                  | 4 bonnen €11,50
+                .radio
+                  input.bonnen(type="radio", name="bonnen", value="-1")
+                  | Ik geef het later aan
           .modal-footer
             .form-group
-              button.btn.btn-primary(type="button", id="sbm-btn") Log in ...
+              button.btn.btn-primary(type="button", id="sbm-btn") Opslaan
 
 .modal.fade#errModal(tabindex="-1", role="dialog", aria-labelledby="Error Modal")
   .modal-dialog(role="document")
@@ -67,4 +199,4 @@ header#banner.hero-unit
         p Vul alle gegevens in ...
       .modal-footer
         button.btn.btn-default(type="button", data-dismiss="modal") Sluit
-        
+
