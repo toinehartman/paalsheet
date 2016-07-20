@@ -101,7 +101,7 @@ Bondslid.find({}).remove()
     titel: 'Oranje Boeven',
     omschrijving: 'Bandje!',
     start: new Date(2016, 7, 24, 22, 30),
-    eind: new Date(2016, 7, 24, 23, 0)
+    eind: new Date(2016, 7, 25, 0, 0)
   }, {
     titel: 'Vele Anderen',
     omschrijving: 'Nog meer fissa!',
@@ -140,47 +140,474 @@ Bondslid.find({}).remove()
   }))
 
   .then(() => Onderdeel.findOne({
+    titel: 'Campusparade/BBQ'
+  }).then((ond, err1) => {
+    seedError(err1);
+
+    Taak.create({
+      titel: 'BBQ klaarzetten',
+      omschrijving: 'BBQ klaarzetten',
+      onderdeel: ond._id
+    }).then((taak, err2) => {
+      seedError(err2);
+      ond.taken.push(taak._id);
+    })
+
+    .then(() => Taak.create({
+      titel: 'Laatste voorbereidingen',
+      omschrijving: 'Laatste voorbereidingen',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2);
+      ond.taken.push(taak._id)
+    }))
+
+    .then(() => Taak.create({
+      titel: 'Meelopen',
+      omschrijving: 'Meelopen parade',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2);
+      ond.taken.push(taak._id)
+    }))
+
+    .then(() => ond.save())
+  }))
+
+  .then(() => Onderdeel.findOne({
+    titel: 'Openingsfeest'
+  }).then((ond, err1) => {
+    seedError(err1)
+
+    Taak.create({
+      titel: 'Meefeesten!',
+      omschrijving: 'Bij openingsfeest zijn',
+      onderdeel: ond._id
+    }).then((taak, err2) => {
+      seedError(err2);
+      ond.taken.push(taak._id);
+    })
+
+    .then(() => ond.save())
+  }))
+
+  .then(() => Onderdeel.findOne({
+    titel: 'Infomarkt'
+  }).then((ond, err1) => {
+    seedError(err1)
+
+    Taak.create({
+      titel: 'Opbouwen',
+      omschrijving: 'Opbouwen Infomarkt',
+      onderdeel: ond._id
+    }).then((taak, err2) => {
+      seedError(err2);
+      ond.taken.push(taak._id);
+    })
+
+    .then(() => Taak.create({
+      titel: 'Afbouwen',
+      omschrijving: 'Afbouwen Infomarkt',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2);
+      ond.taken.push(taak._id)
+    }))
+
+    .then(() => ond.save())
+  }))
+
+  .then(() => Onderdeel.findOne({
     titel: 'Bierestafette'
-  }).then((estafette, err1) => {
-    if (err1) console.log('Onderdeel niet gevonden: ' + err1);
+  }).then((ond, err1) => {
+    seedError(err1)
 
     Taak.create({
       titel: 'Opbouwen',
       omschrijving: 'Opbouwen Bierestafette',
-      onderdeel: estafette._id
+      onderdeel: ond._id
     })
     .then((taak, err2) => {
-      if (err2) console.log('Taak niet gecreëerd: ' + err2);
-
-      estafette.taken.push(taak._id)
+      seedError(err2)
+      ond.taken.push(taak._id)
     })
+
     .then(() => Taak.create({
       titel: 'Afbouwen',
       omschrijving: 'Afbouwen Bierestafette',
-      onderdeel: estafette._id
+      onderdeel: ond._id
     })
     .then((taak, err2) => {
-      if (err2) console.log('Taak niet gecreëerd: ' + err2);
-
-      estafette.taken.push(taak._id)
-      estafette.save()
+      seedError(err2)
+      ond.taken.push(taak._id)
     }))
+
+    .then(() => Taak.create({
+      titel: 'Schenkmiepen',
+      omschrijving: 'Schenkmiepen Bierestafette',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    }))
+
+    .then(() => ond.save())
+  }))
+
+  .then(() => Onderdeel.findOne({
+    omschrijving: 'SEx maandag'
+  }).then((ond, err1) => {
+    seedError(err1)
+
+    Taak.create({
+      titel: 'Opbouwen',
+      omschrijving: 'Opbouwen Stock Exchange maandag',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    })
+
+    .then(() => Taak.create({
+      titel: 'Afbouwen',
+      omschrijving: 'Afbouwen Stock Exchange maandag',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    }))
+
+    .then(() => Taak.create({
+      titel: 'Achter kassa zitten',
+      omschrijving: 'Kassa Stock Exchange maandag',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    }))
+
+    .then(() => ond.save())
   }))
 
   .then(() => Onderdeel.findOne({
     titel: 'Nobelprijzen'
-  }).then((nobelprijzen, err1) => {
-    if (err1) console.log('Onderdeel niet gevonden: ' + err1);
+  }).then((ond, err1) => {
+    seedError(err1)
 
     Taak.create({
-      titel: 'Begeleiden',
-      omschrijving: 'Begeleiden Nobelprijzen',
-      onderdeel: nobelprijzen._id
+      titel: 'Opbouwen',
+      omschrijving: 'Opbouwen Nobelprijzen',
+      onderdeel: ond._id
     })
     .then((taak, err2) => {
-      if (err2) console.log('Taak niet gecreëerd: ' + err2);
-
-      nobelprijzen.taken.push(taak._id)
-      nobelprijzen.save()
+      seedError(err2)
+      ond.taken.push(taak._id)
     })
+
+    .then(() => Taak.create({
+      titel: 'Afbouwen',
+      omschrijving: 'Afbouwen Nobelprijzen',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    }))
+
+    .then(() => ond.save())
   }))
+
+  .then(() => Onderdeel.findOne({
+    titel: 'DJ PJ Neon Party'
+  }).then((ond, err1) => {
+    seedError(err1)
+
+    Taak.create({
+      titel: 'Cheapsnack',
+      omschrijving: 'Cheapsnack bij Neon Party',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    })
+
+    .then(() => ond.save())
+  }))
+
+  .then(() => Onderdeel.findOne({
+    titel: 'Verenigingendag'
+  }).then((ond, err1) => {
+    seedError(err1)
+
+    Taak.create({
+      titel: 'Rondleiden \'s ochtends',
+      omschrijving: '\'s Ochtends rondleiden Verenigingendag',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    })
+
+    .then(() => Taak.create({
+      titel: 'Rondleiden \'s middags',
+      omschrijving: '\'s Middags rondleiden Verenigingendag',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    }))
+
+    .then(() => Taak.create({
+      titel: 'Schieten in de tuin',
+      omschrijving: 'Schieten in tuin bij Verenigingendag',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    }))
+
+    .then(() => ond.save())
+  }))
+
+  .then(() => Onderdeel.findOne({
+    titel: 'In Vino Casino'
+  }).then((ond, err1) => {
+    seedError(err1)
+
+    Taak.create({
+      titel: 'Opbouwen',
+      omschrijving: 'In Vino Casino opbouwen',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    })
+
+    .then(() => Taak.create({
+      titel: 'Bij zijn in rokkostuum/galajurk',
+      omschrijving: 'Bij In Vino Casino zijn in rokkostuum/galajurk',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    }))
+
+    .then(() => Taak.create({
+      titel: 'Casinospellen begeleiden',
+      omschrijving: 'Casinospellen begeleiden',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    }))
+
+    .then(() => ond.save())
+  }))
+
+  .then(() => Onderdeel.findOne({
+    titel: 'SpoCudag'
+  }).then((ond, err1) => {
+    seedError(err1)
+
+    Taak.create({
+      titel: 'Sportdingen doen',
+      omschrijving: 'Sportieve dingen doen op SpoCudag',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    })
+
+    .then(() => Taak.create({
+      titel: 'Opbouwen',
+      omschrijving: 'Opbouwen SpoCudag',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    }))
+
+    .then(() => Taak.create({
+      titel: 'Afbouwen',
+      omschrijving: 'Afbouwen SpoCudag',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    }))
+
+    .then(() => Taak.create({
+      titel: 'Flyeren na cantus',
+      omschrijving: 'Flyeren na cantus',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    }))
+
+    .then(() => Taak.create({
+      titel: 'Zadelhoesjes verspreiden',
+      omschrijving: 'Zadelhoesjes verspreiden tijdens SpoCudag',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    }))
+
+    .then(() => ond.save())
+  }))
+
+  .then(() => Onderdeel.findOne({
+    titel: 'Spelroulette/Hamburgers met korting'
+  }).then((ond, err1) => {
+    seedError(err1)
+
+    Taak.create({
+      titel: 'Hamburgers verkopen',
+      omschrijving: 'Hamburgers verkopen met korting',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    })
+
+    .then(() => Taak.create({
+      titel: 'Spellen opzetten',
+      omschrijving: 'Spelroulette opbouwen',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    }))
+
+    .then(() => Taak.create({
+      titel: 'Spellen uitleggen en spelen',
+      omschrijving: 'Spelroulette begeleiden',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    }))
+
+    .then(() => ond.save())
+  }))
+
+  .then(() => Onderdeel.findOne({
+    titel: 'Pré-ZomBiFest'
+  }).then((ond, err1) => {
+    seedError(err1)
+
+    Taak.create({
+      titel: 'Opbouwen',
+      omschrijving: 'Opbouwen ZomBiFest',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    })
+
+    .then(() => Taak.create({
+      titel: 'Afbouwen',
+      omschrijving: 'Afbouwen ZomBiFest',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    }))
+
+    .then(() => ond.save())
+  }))
+
+  .then(() => Onderdeel.findOne({
+    omschrijving: 'SEx woensdag'
+  }).then((ond, err1) => {
+    seedError(err1)
+
+    Taak.create({
+      titel: 'Opbouwen',
+      omschrijving: 'Opbouwen Stock Exchange woensdag',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    })
+
+    .then(() => Taak.create({
+      titel: 'Afbouwen',
+      omschrijving: 'Afbouwen Stock Exchange woensdag',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    }))
+
+    .then(() => Taak.create({
+      titel: 'Achter kassa zitten',
+      omschrijving: 'Kassa Stock Exchange woensdag',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    }))
+
+    .then(() => ond.save())
+  }))
+
+  .then(() => Onderdeel.findOne({
+    titel: 'Smoothie-/koffiebar'
+  }).then((ond, err1) => {
+    seedError(err1)
+
+    Taak.create({
+      titel: 'Uitbrakken bij OWee-brunch',
+      omschrijving: 'Uitbrakken bij OWee-brunch',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    })
+
+    .then(() => Taak.create({
+      titel: 'Bar bemannen',
+      omschrijving: 'Smoothie-/koffiebar bemannen',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    }))
+
+    .then(() => ond.save())
+  }))
+
+  function seedError(err) {
+    if (err) console.log('ERROR: ' + err);
+  }
