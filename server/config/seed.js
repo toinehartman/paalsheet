@@ -110,7 +110,7 @@ Bondslid.find({}).remove()
   }, {
     titel: 'Smoothie-/koffiebar',
     omschrijving: 'Lekkere gezonde sappies',
-    start: new Date(2016, 7, 25, 17, 0),
+    start: new Date(2016, 7, 25, 16, 15),
     eind: new Date(2016, 7, 25, 18, 0)
   }, {
     titel: 'Escape Room',
@@ -214,6 +214,16 @@ Bondslid.find({}).remove()
     })
     .then((taak, err2) => {
       seedError(err2);
+      ond.taken.push(taak._id)
+    }))
+
+    .then(() => Taak.create({
+      titel: 'aanwezig zijn en lubben',
+      omschrijving: 'Lubben tijdens Infomarkt',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
       ond.taken.push(taak._id)
     }))
 
@@ -419,6 +429,24 @@ Bondslid.find({}).remove()
   }))
 
   .then(() => Onderdeel.findOne({
+    titel: 'DJ Paul'
+  }).then((ond, err1) => {
+    seedError(err1)
+
+    Taak.create({
+      titel: 'Cheapsnack',
+      omschrijving: 'Cheapsnack bij DJ Paul',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    })
+
+    .then(() => ond.save())
+  }))
+
+  .then(() => Onderdeel.findOne({
     titel: 'SpoCudag'
   }).then((ond, err1) => {
     seedError(err1)
@@ -473,6 +501,16 @@ Bondslid.find({}).remove()
       ond.taken.push(taak._id)
     }))
 
+    .then(() => Taak.create({
+      titel: 'Aanwezig zijn en lubben',
+      omschrijving: 'Lubben tijdens SpoCudag',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    }))
+
     .then(() => ond.save())
   }))
 
@@ -490,16 +528,6 @@ Bondslid.find({}).remove()
       seedError(err2)
       ond.taken.push(taak._id)
     })
-
-    .then(() => Taak.create({
-      titel: 'Spellen opzetten',
-      omschrijving: 'Spelroulette opbouwen',
-      onderdeel: ond._id
-    })
-    .then((taak, err2) => {
-      seedError(err2)
-      ond.taken.push(taak._id)
-    }))
 
     .then(() => Taak.create({
       titel: 'Spellen uitleggen en spelen',
@@ -581,6 +609,24 @@ Bondslid.find({}).remove()
   }))
 
   .then(() => Onderdeel.findOne({
+    titel: 'Vele Anderen'
+  }).then((ond, err1) => {
+    seedError(err1)
+
+    Taak.create({
+      titel: 'Cheapsnack',
+      omschrijving: 'Cheapsnack bij Vele Anderen',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    })
+
+    .then(() => ond.save())
+  }))
+
+  .then(() => Onderdeel.findOne({
     titel: 'Smoothie-/koffiebar'
   }).then((ond, err1) => {
     seedError(err1)
@@ -604,6 +650,24 @@ Bondslid.find({}).remove()
       seedError(err2)
       ond.taken.push(taak._id)
     }))
+
+    .then(() => ond.save())
+  }))
+
+  .then(() => Onderdeel.findOne({
+    titel: 'Slotfeest met MC Menno\'s Eskalation'
+  }).then((ond, err1) => {
+    seedError(err1)
+
+    Taak.create({
+      titel: 'Cheapsnack',
+      omschrijving: 'Cheapsnack bij MC Menno',
+      onderdeel: ond._id
+    })
+    .then((taak, err2) => {
+      seedError(err2)
+      ond.taken.push(taak._id)
+    })
 
     .then(() => ond.save())
   }))
