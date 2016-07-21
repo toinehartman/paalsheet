@@ -38,8 +38,8 @@
             user.email = formInEmail;
             user.bonnen = new Number(bonnen);
 
-            var stringJSON = JSON.stringify(user);
-            $httpInit.post('/api/bondsleden', stringJSON).then(successGetID, errorCallback);
+            // var stringJSON = JSON.stringify(user);
+            // $httpInit.post('/api/bondsleden', stringJSON).then(successGetID, errorCallback);
           } else {
             $('#errModal').modal();
           }
@@ -67,21 +67,21 @@
           }).get();
 
           var opmerking = $('textarea.opmerking').get(0).value;
-          var mentor = $('input.mentor:checked').get(0);
+          var mentor = $('input.mentor:checked').get(0).value;
 
-          if (mentor === undefined)
-            mentor = 0;
+          // if (mentor === null)
+          //   mentor = 0;
 
           user.dagen = dagen;
           user.praam = praam;
           user.opmerking = opmerking;
-          user.mentor = new Number(mentor);
+          user.mentor = mentor;
           user.busje = busje;
           user.balie = balie;
 
           // console.log(user);
           // console.log(userID);
-          this.$http.put('/api/bondsleden/' + userID, JSON.stringify(user)).then((reponse) => {
+          this.$http.post('/api/bondsleden/' , JSON.stringify(user)).then((reponse) => {
             alert('Je gegevens zijn succesvol opgeslagen, bedankt!');
           }, errorCallback);
         })
