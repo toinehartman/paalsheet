@@ -54,44 +54,44 @@ describe('Onderdeel API Router:', function() {
 
   });
 
-  describe('POST /api/onderdelen', function() {
+  // describe('POST /api/onderdelen', function() {
 
-    it('should route to onderdeel.controller.create', function() {
-      expect(routerStub.post
-        .withArgs('/', 'onderdeelCtrl.create')
-        ).to.have.been.calledOnce;
-    });
+  //   it('should route to onderdeel.controller.create', function() {
+  //     expect(routerStub.post
+  //       .withArgs('/', 'onderdeelCtrl.create')
+  //       ).to.have.been.calledOnce;
+  //   });
 
-  });
+  // });
 
-  describe('PUT /api/onderdelen/:id', function() {
+  // describe('PUT /api/onderdelen/:id', function() {
 
-    it('should route to onderdeel.controller.update', function() {
-      expect(routerStub.put
-        .withArgs('/:id', 'onderdeelCtrl.update')
-        ).to.have.been.calledOnce;
-    });
+  //   it('should route to onderdeel.controller.update', function() {
+  //     expect(routerStub.put
+  //       .withArgs('/:id', 'onderdeelCtrl.update')
+  //       ).to.have.been.calledOnce;
+  //   });
 
-  });
+  // });
 
-  describe('PATCH /api/onderdelen/:id', function() {
+  // describe('PATCH /api/onderdelen/:id', function() {
 
-    it('should route to onderdeel.controller.update', function() {
-      expect(routerStub.patch
-        .withArgs('/:id', 'onderdeelCtrl.update')
-        ).to.have.been.calledOnce;
-    });
+  //   it('should route to onderdeel.controller.update', function() {
+  //     expect(routerStub.patch
+  //       .withArgs('/:id', 'onderdeelCtrl.update')
+  //       ).to.have.been.calledOnce;
+  //   });
 
-  });
+  // });
 
-  describe('DELETE /api/onderdelen/:id', function() {
+  // describe('DELETE /api/onderdelen/:id', function() {
 
-    it('should route to onderdeel.controller.destroy', function() {
-      expect(routerStub.delete
-        .withArgs('/:id', 'onderdeelCtrl.destroy')
-        ).to.have.been.calledOnce;
-    });
+  //   it('should route to onderdeel.controller.destroy', function() {
+  //     expect(routerStub.delete
+  //       .withArgs('/:id', 'onderdeelCtrl.destroy')
+  //       ).to.have.been.calledOnce;
+  //   });
 
-  });
+  // });
 
 });

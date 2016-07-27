@@ -54,44 +54,44 @@ describe('Taak API Router:', function() {
 
   });
 
-  describe('POST /api/taken', function() {
+  // describe('POST /api/taken', function() {
 
-    it('should route to taak.controller.create', function() {
-      expect(routerStub.post
-        .withArgs('/', 'taakCtrl.create')
-        ).to.have.been.calledOnce;
-    });
+  //   it('should route to taak.controller.create', function() {
+  //     expect(routerStub.post
+  //       .withArgs('/', 'taakCtrl.create')
+  //       ).to.have.been.calledOnce;
+  //   });
 
-  });
+  // });
 
-  describe('PUT /api/taken/:id', function() {
+  // describe('PUT /api/taken/:id', function() {
 
-    it('should route to taak.controller.update', function() {
-      expect(routerStub.put
-        .withArgs('/:id', 'taakCtrl.update')
-        ).to.have.been.calledOnce;
-    });
+  //   it('should route to taak.controller.update', function() {
+  //     expect(routerStub.put
+  //       .withArgs('/:id', 'taakCtrl.update')
+  //       ).to.have.been.calledOnce;
+  //   });
 
-  });
+  // });
 
-  describe('PATCH /api/taken/:id', function() {
+  // describe('PATCH /api/taken/:id', function() {
 
-    it('should route to taak.controller.update', function() {
-      expect(routerStub.patch
-        .withArgs('/:id', 'taakCtrl.update')
-        ).to.have.been.calledOnce;
-    });
+  //   it('should route to taak.controller.update', function() {
+  //     expect(routerStub.patch
+  //       .withArgs('/:id', 'taakCtrl.update')
+  //       ).to.have.been.calledOnce;
+  //   });
 
-  });
+  // });
 
-  describe('DELETE /api/taken/:id', function() {
+  // describe('DELETE /api/taken/:id', function() {
 
-    it('should route to taak.controller.destroy', function() {
-      expect(routerStub.delete
-        .withArgs('/:id', 'taakCtrl.destroy')
-        ).to.have.been.calledOnce;
-    });
+  //   it('should route to taak.controller.destroy', function() {
+  //     expect(routerStub.delete
+  //       .withArgs('/:id', 'taakCtrl.destroy')
+  //       ).to.have.been.calledOnce;
+  //   });
 
-  });
+  // });
 
 });

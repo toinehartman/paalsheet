@@ -76,28 +76,28 @@ export function show(req, res) {
 }
 
 // Creates a new Taak in the DB
-export function create(req, res) {
-  return Taak.create(req.body)
-    .then(respondWithResult(res, 201))
-    .catch(handleError(res));
-}
+// export function create(req, res) {
+//   return Taak.create(req.body)
+//     .then(respondWithResult(res, 201))
+//     .catch(handleError(res));
+// }
 
 // Updates an existing Taak in the DB
-export function update(req, res) {
-  if (req.body._id) {
-    delete req.body._id;
-  }
-  return Taak.findById(req.params.id).exec()
-    .then(handleEntityNotFound(res))
-    .then(saveUpdates(req.body))
-    .then(respondWithResult(res))
-    .catch(handleError(res));
-}
+// export function update(req, res) {
+//   if (req.body._id) {
+//     delete req.body._id;
+//   }
+//   return Taak.findById(req.params.id).exec()
+//     .then(handleEntityNotFound(res))
+//     .then(saveUpdates(req.body))
+//     .then(respondWithResult(res))
+//     .catch(handleError(res));
+// }
 
 // Deletes a Taak from the DB
-export function destroy(req, res) {
-  return Taak.findById(req.params.id).exec()
-    .then(handleEntityNotFound(res))
-    .then(removeEntity(res))
-    .catch(handleError(res));
-}
+// export function destroy(req, res) {
+//   return Taak.findById(req.params.id).exec()
+//     .then(handleEntityNotFound(res))
+//     .then(removeEntity(res))
+//     .catch(handleError(res));
+// }

@@ -30,4 +30,15 @@ var BondslidSchema = new mongoose.Schema({
   balie: [String]
 });
 
+BondslidSchema.virtual('fullname').get(function() {
+  return this.firstname.concat(this.lastname)
+})
+
+BondslidSchema.virtual('fullname').set(function(name) {
+  var names = name.spilt(' ')
+
+  this.firstname = names.shift()
+  this.lastname = ' '.join(names)
+})
+
 export default mongoose.model('Bondslid', BondslidSchema);

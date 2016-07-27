@@ -82,21 +82,21 @@ export function create(req, res) {
 }
 
 // Updates an existing Bondslid in the DB
-export function update(req, res) {
-  if (req.body._id) {
-    delete req.body._id;
-  }
-  return Bondslid.findById(req.params.id).exec()
-    .then(handleEntityNotFound(res))
-    .then(saveUpdates(req.body))
-    .then(respondWithResult(res))
-    .catch(handleError(res));
-}
+// export function update(req, res) {
+//   if (req.body._id) {
+//     delete req.body._id;
+//   }
+//   return Bondslid.findById(req.params.id).exec()
+//     .then(handleEntityNotFound(res))
+//     .then(saveUpdates(req.body))
+//     .then(respondWithResult(res))
+//     .catch(handleError(res));
+// }
 
 // Deletes a Bondslid from the DB
-export function destroy(req, res) {
-  return Bondslid.findById(req.params.id).exec()
-    .then(handleEntityNotFound(res))
-    .then(removeEntity(res))
-    .catch(handleError(res));
-}
+// export function destroy(req, res) {
+//   return Bondslid.findById(req.params.id).exec()
+//     .then(handleEntityNotFound(res))
+//     .then(removeEntity(res))
+//     .catch(handleError(res));
+// }

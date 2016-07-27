@@ -64,34 +64,34 @@ describe('Bondslid API Router:', function() {
 
   });
 
-  describe('PUT /api/bondsleden/:id', function() {
+  // describe('PUT /api/bondsleden/:id', function() {
 
-    it('should route to bondslid.controller.update', function() {
-      expect(routerStub.put
-        .withArgs('/:id', 'bondslidCtrl.update')
-        ).to.have.been.calledOnce;
-    });
+  //   it('should route to bondslid.controller.update', function() {
+  //     expect(routerStub.put
+  //       .withArgs('/:id', 'bondslidCtrl.update')
+  //       ).to.have.been.calledOnce;
+  //   });
 
-  });
+  // });
 
-  describe('PATCH /api/bondsleden/:id', function() {
+  // describe('PATCH /api/bondsleden/:id', function() {
 
-    it('should route to bondslid.controller.update', function() {
-      expect(routerStub.patch
-        .withArgs('/:id', 'bondslidCtrl.update')
-        ).to.have.been.calledOnce;
-    });
+  //   it('should route to bondslid.controller.update', function() {
+  //     expect(routerStub.patch
+  //       .withArgs('/:id', 'bondslidCtrl.update')
+  //       ).to.have.been.calledOnce;
+  //   });
 
-  });
+  // });
 
-  describe('DELETE /api/bondsleden/:id', function() {
+  // describe('DELETE /api/bondsleden/:id', function() {
 
-    it('should route to bondslid.controller.destroy', function() {
-      expect(routerStub.delete
-        .withArgs('/:id', 'bondslidCtrl.destroy')
-        ).to.have.been.calledOnce;
-    });
+  //   it('should route to bondslid.controller.destroy', function() {
+  //     expect(routerStub.delete
+  //       .withArgs('/:id', 'bondslidCtrl.destroy')
+  //       ).to.have.been.calledOnce;
+  //   });
 
-  });
+  // });
 
 });
