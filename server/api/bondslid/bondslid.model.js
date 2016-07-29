@@ -31,7 +31,7 @@ var BondslidSchema = new mongoose.Schema({
 });
 
 BondslidSchema.virtual('fullname').get(function() {
-  return this.firstname.concat(this.lastname)
+  return this.firstname.concat(' ', this.lastname)
 })
 
 BondslidSchema.virtual('fullname').set(function(name) {

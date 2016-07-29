@@ -1,8 +1,9 @@
 Frontend:
-   ☐  Pas inloggen als alle velden ingevuld zijn @critical
-   ☐  Versies bower vernieuwen @low
+  ✔  Pas inloggen als alle velden ingevuld zijn @critical @done (16-07-29 13:30)
+  ✔  Versies bower vernieuwen @low @done (16-07-29 13:30)
 Backend:
- ☐  Alle onderdelen toevoegen @critical
- ☐  Versies node modules vernieuwen @low
+  ✔  Alle onderdelen toevoegen @critical @done (16-07-29 13:31)
+  ☐  Versies node modules vernieuwen @low
+  ☐  Timestamp wanneer ingevuld
 Gulp:
-  ☐  Productie repareren @critical
+  ✔  Productie repareren @critical @done (16-07-29 13:30)

@@ -8,6 +8,8 @@ import errors from './components/errors';
 import path from 'path';
 
 export default function(app) {
+  app.use('/lijst', require('./api/lijst'));
+
   // Insert routes below
   app.use('/api/taken', require('./api/taak'));
   app.use('/api/onderdelen', require('./api/onderdeel'));

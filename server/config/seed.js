@@ -9,7 +9,7 @@ import Bondslid from '../api/bondslid/bondslid.model';
 import Onderdeel from '../api/onderdeel/onderdeel.model';
 import Taak from '../api/taak/taak.model';
 
-Bondslid.find({}).remove()
+Bondslid.find({})
   .then(() => Onderdeel.find({}).remove())
   .then(() => Taak.find({}).remove())
   .then(() => Onderdeel.create({
