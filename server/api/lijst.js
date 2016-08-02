@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
 
         res.status(200).download(file, err => {
           console.log(file, 'downloaded succesfully!')
-          // fs.unlink(file)
+          fs.unlink(file)
         })
       })
     }
