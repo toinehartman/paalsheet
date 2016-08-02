@@ -24,11 +24,7 @@ router.get('/', (req, res) => {
 
       fs.writeFile(file, csv(['ID', 'Naam', 'E-mail', 'Taken', 'Dagen', 'Praam', 'Bonnen', 'Mentor', 'Busje', 'Balie', 'Opmerking']), err => {
         results.forEach(r => {
-          // if (r.fullname === 'Thomas Bakker') {
-          //   sep(r.opmerking)
-          //   sep2(r.opmerking)
-          // }
-          fs.appendFileSync(file, csv([r._id, r.fullname, r.email, r.tasks, r.dagen, r.praam, r.bonnen, r.mentor, r.busje, r.balie, r.opmerking]))
+          fs.appendFileSync(file, csv([r._id, r.fullname, r.email, _.map(r.tasks, 'omschrijving'), r.dagen, r.praam, r.bonnen, translate_mentor(r.mentor), r.busje, r.balie, r.opmerking]))
         })
 
         res.status(200).download(file, err => {
@@ -82,9 +78,26 @@ function prep(string) {
 
     if (c !== '\n' && c !== '\r')
       new_string += c
+    else
+      new_string += ' '
   }
 
   return new_string
+}
+
+function translate_mentor(value) {
+  switch (value) {
+    case 0:
+      return 'Nee'
+    case 1:
+      return 'Ja'
+    case 2:
+      return 'Ja (partner)'
+    case 3:
+      return 'Ja (bevestiging)'
+    default:
+      return ''
+  }
 }
 
 module.exports = router;
