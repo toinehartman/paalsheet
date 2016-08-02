@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
       const now = new Date()
       const file = './enquete-'.concat(dateformat(now, 'yyyymmdd_HHMMss')).concat('.csv')
 
-      fs.writeFile(file, csv(['ID', 'Naam', 'E-mail', 'Taken', 'Dagen', 'Praam', 'Bonnen', 'Mentor', 'Busje', 'Balie', 'Opmerking']), err => {
+      fs.writeFile(file, csv(['id', 'Naam', 'E-mail', 'Taken', 'Dagen', 'Praam', 'Bonnen', 'Mentor', 'Busje', 'Balie', 'Opmerking']), err => {
         results.forEach(r => {
           fs.appendFileSync(file, csv([r._id, r.fullname, r.email, _.map(r.tasks, 'omschrijving'), r.dagen, r.praam, r.bonnen, translate_mentor(r.mentor), r.busje, r.balie, r.opmerking]))
         })
